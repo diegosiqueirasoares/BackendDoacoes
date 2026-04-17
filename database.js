@@ -13,27 +13,27 @@ const criarBanco = async () => {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT NOT NULL,
             endereco TEXT NOT NULL,
-            status TEXT DEFAULT(situacao IN ('critico', 'estavel', 'cheio')),
+            status TEXT NOT NULL,
             agua TEXT NOT NULL,
             alimentos TEXT NOT NULL,
             roupas TEXT NOT NULL,
-            higiene TEXT DEFAULT 
+            higiene TEXT NOT NULL
         )
     `)
 
     console.log('✅ Banco de dados configurado: Tabela de centro de doações criada!')
 
     // Verificar se já existem dados
-    const checagem = await db.get(`SELECT COUNT(*) AS total FROM nome, endereco, status, agua, alimentos, roupa, higiene`)
+const checagem = await db.get(`SELECT COUNT(*) AS total FROM doacoes`)
 
     if (checagem.total === 0) {
         console.log('📝 Inserindo dados de centros de doacoes')
         await db.exec(`    
-            INSERT INTO centro de doacoes
+            INSERT INTO doacoes
             (nome, endereco, status, agua, alimentos, roupas, higiene)
             VALUES
-            ('ginasio municipal centro', 'rua das flores 123, 'critico', 'estavel', 'cheio', 'critico'),
-            ('igreja santa maria', 'av principal 500', 'estavel', 'critico', 'estavel', 'estavel'),
+            ('ginasio municipal centro', 'rua das flores 123', 'critico', 'estavel', 'cheio', 'critico', 'cheio'),
+            ('igreja santa maria', 'av principal 500', 'estavel', 'critico', 'estavel', 'estavel', 'cheio')
         `)
         console.log('✅ 2 centros de doacoes localizados com sucesso!')
     } else {
@@ -42,19 +42,12 @@ const criarBanco = async () => {
 
     // Consultas de exemplo
     console.log('\n📊 TOTAL DE DOACOES:')
-    const totaldoacoes = await db.all(`SELECT * FROM centro de doacoes`)
+    const totaldoacoes = await db.all(`SELECT * FROM doacoes`)
     console.log(totaldoacoes)
-
-    // Atualizar status
-    await db.run(`
-        UPDATE doacoes
-        SET status = 'critico', 'estavel', 'cheio'
-        WHERE funcao = 'agua', 'alimentos', 'roupas', 'higiene'
-    `)
-    console.log('\n🔄 Status do centro de doacoes atualizado para "critico', 'estavel', 'cheio')
 
 
     return db;
 }
 
 module.exports = { criarBanco }
+
