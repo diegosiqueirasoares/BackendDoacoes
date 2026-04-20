@@ -14,5 +14,6 @@ Uma plataforma onde administradores de abrigos atualizam o nível de urgência d
 - **Diferencial:** Indicador visual de prioridade (Vermelho: Crítico, Amarelo: Estável, Verde: Cheio), permitindo que o doador escolha o destino antes de sair de casa.
 
 ## 4. Estrutura do Sistema
-- **Back-end:** Node.js com Express simulando uma API REST.
+- **Backend:** Node.js com Express simulando uma API REST.
 - **Banco de Dados:** Arquivo JSON para persistência simples e rápida, armazenando locais, endereços e níveis de estoque.
+- **Frontend:** HTML, SCSS
