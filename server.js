@@ -28,3 +28,5 @@ const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+
+app.use(express.static('public')); // Se os arquivos estiverem na pasta 'public'

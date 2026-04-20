@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Doações - Emergência</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🆘 Gestão de Suprimentos</h1>
+        <p>Ajude a distribuir doações de forma eficiente.</p>
+    </header>
+
+    <main class="container">
+        <section id="form-section">
+            <h2>Cadastrar Centro de Coleta</h2>
+            <form id="doacao-form">
+                <input type="text" id="nome" placeholder="Nome do local (ex: Ginásio Municipal)" required>
+                <input type="text" id="endereco" placeholder="Endereço completo" required>
+                
+                <div class="status-grid">
+                    <div class="input-group">
+                        <label>Status Geral:</label>
+                        <select id="status">
+                            <option value="estavel">Estável</option>
+                            <option value="critico">Crítico</option>
+                            <option value="cheio">Cheio</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Água:</label>
+                        <select id="agua"><option value="estavel">Estável</option><option value="critico">Crítico</option><option value="cheio">Cheio</option></select>
+                    </div>
+                    <div class="input-group">
+                        <label>Alimentos:</label>
+                        <select id="alimentos"><option value="estavel">Estável</option><option value="critico">Crítico</option><option value="cheio">Cheio</option></select>
+                    </div>
+                     <div class="input-group">
+                        <label>Roupas:</label>
+                        <select id="roupas"><option value="estavel">Estável</option><option value="critico">Crítico</option><option value="cheio">Cheio</option></select>
+                    </div>
+                     <div class="input-group">
+                        <label>Higiene:</label>
+                        <select id="higiene"><option value="estavel">Estável</option><option value="critico">Crítico</option><option value="cheio">Cheio</option></select>
+                    </div>
+                </div>
+                <button type="submit">Cadastrar Ponto de Coleta</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section id="list-section">
+            <h2>Pontos de Coleta Atuais</h2>
+            <div id="centros-container" class="grid">
+                <p>Carregando dados...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
