@@ -23,7 +23,7 @@ app.post('/doacoes', async (req, res) => {
     res.status(201).send({ message: "Doação registrada!" });
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);

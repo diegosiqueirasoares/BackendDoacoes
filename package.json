@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
-    
+    "dev": "nodemon server.js",
+    "postinstall": "npm rebuild sqlite3",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +19,7 @@
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "sqlite": "^5.1.1",
-    "sqlite3": "^6.0.1"
+    "sqlite3": "^5.1.6"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
